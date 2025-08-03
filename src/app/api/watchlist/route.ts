@@ -14,7 +14,7 @@ export async function GET(request: NextRequest) {
 
     const watchlist = await db.getUserWatchlist(token.sub)
     return successResponse(watchlist)
-  } catch (error) {
+  } catch {
     return errorResponse("Failed to fetch watchlist")
   }
 }
@@ -36,9 +36,9 @@ export async function POST(request: NextRequest) {
     )
 
     return successResponse(watchlistItem)
-  } catch (error) {
-    if (error instanceof z.ZodError) {
-      return validationErrorResponse(error as z.ZodError)
+  } catch (err) {
+    if (err instanceof z.ZodError) {
+      return validationErrorResponse(err as z.ZodError)
     }
     return errorResponse("Failed to add to watchlist")
   }

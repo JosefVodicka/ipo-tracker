@@ -19,7 +19,7 @@ export async function GET(request: NextRequest, { params }: RouteParams) {
       return errorResponse("IPO not found", 404)
     }
     return successResponse(ipo)
-  } catch (error) {
+  } catch {
     return errorResponse("Failed to fetch IPO")
   }
 }
@@ -41,9 +41,9 @@ export async function PATCH(request: NextRequest, { params }: RouteParams) {
     })
 
     return successResponse(ipo)
-  } catch (error) {
-    if (error instanceof z.ZodError) {
-      return validationErrorResponse(error as z.ZodError)
+  } catch (err) {
+    if (err instanceof z.ZodError) {
+      return validationErrorResponse(err as z.ZodError)
     }
     return errorResponse("Failed to update IPO")
   }
@@ -61,7 +61,7 @@ export async function DELETE(request: NextRequest, { params }: RouteParams) {
     })
 
     return successResponse({ deleted: true })
-  } catch (error) {
+  } catch {
     return errorResponse("Failed to delete IPO")
   }
 } 

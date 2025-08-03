@@ -20,7 +20,7 @@ export const formatRelativeTimeVerbose = (date: Date | string | number) => {
   return isValid(d) ? formatRelative(d, new Date()) : "Invalid Date"
 }
 
-export const isValidDate = (date: any): date is Date => {
+export const isValidDate = (date: unknown): date is Date => {
   return date instanceof Date && !isNaN(date.getTime())
 }
 

@@ -10,7 +10,7 @@ export async function GET() {
   try {
     const ipos = await db.getIPOs()
     return successResponse(ipos)
-  } catch (error) {
+  } catch {
     return errorResponse("Failed to fetch IPOs")
   }
 }
@@ -42,9 +42,9 @@ export async function POST(request: NextRequest) {
     })
 
     return successResponse(ipo)
-  } catch (error) {
-    if (error instanceof z.ZodError) {
-      return validationErrorResponse(error as z.ZodError)
+  } catch (err) {
+    if (err instanceof z.ZodError) {
+      return validationErrorResponse(err as z.ZodError)
     }
     return errorResponse("Failed to create IPO")
   }

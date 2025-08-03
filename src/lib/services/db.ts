@@ -1,6 +1,4 @@
 import { prisma } from "@/lib/prisma"
-import type { IPOWithCompany, WatchlistWithIPO } from "@/types/db"
-import type { Prisma } from "@prisma/client"
 
 export const db = {
   // IPO queries

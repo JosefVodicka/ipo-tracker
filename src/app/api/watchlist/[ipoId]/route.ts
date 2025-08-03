@@ -18,7 +18,7 @@ export async function DELETE(request: NextRequest, { params }: RouteParams) {
 
     await db.removeFromWatchlist(token.sub, params.ipoId)
     return successResponse({ deleted: true })
-  } catch (error) {
+  } catch {
     return errorResponse("Failed to remove from watchlist")
   }
 } 
