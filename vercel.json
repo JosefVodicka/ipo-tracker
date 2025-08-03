@@ -9,27 +9,5 @@
       "src": "next.config.ts",
       "use": "@vercel/next"
     }
-  ],
-  "env": {
-    "NEXTAUTH_URL": {
-      "description": "The URL of your application for NextAuth.js",
-      "required": true
-    },
-    "NEXTAUTH_SECRET": {
-      "description": "A secret key for NextAuth.js session handling",
-      "required": true
-    },
-    "GOOGLE_CLIENT_ID": {
-      "description": "Google OAuth client ID",
-      "required": true
-    },
-    "GOOGLE_CLIENT_SECRET": {
-      "description": "Google OAuth client secret",
-      "required": true
-    },
-    "DATABASE_URL": {
-      "description": "PostgreSQL connection string",
-      "required": true
-    }
-  }
+  ]
 } 
